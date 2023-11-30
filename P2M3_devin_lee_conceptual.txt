@@ -1,0 +1,34 @@
+---
+## Conceptual Problems
+
+*Jawab pertanyaan berikut dengan menggunakan kalimat Anda sendiri:*
+
+1. Jelaskan apa yang dimaksud dengan NoSQL menggunakan pemahaman yang kalian ketahui !
+
+2. Jelaskan kapan harus menggunakan NoSQL dan Relational Database Management System !
+
+3. Sebutkan contoh 2 tools/platform NoSQL selain ElasticSearch beserta keunggulan tools/platform tersebut !
+
+4. Jelaskan apa yang Anda ketahui dari Airflow menggunakan pemahaman dan bahasa Anda sendiri !
+
+5. Jelaskan apa yang Anda ketahui dari Great Expectations menggunakan pemahaman dan bahasa Anda sendiri !
+
+6. Jelaskan apa yang Anda ketahui dari Batch Processing menggunakan pemahaman dan bahasa Anda sendiri (Definisi, Contoh Kasus Penggunaan, Tools, dll) !
+
+---
+
+1. NoSQL merujuk pada sistem penyimpanan data yang tidak mengikuti format tabel tradisional. Dikenal dengan kemampuannya mengelola volume data yang besar dan struktur skema yang fleksibel, database NoSQL memungkinkan penyimpanan data dalam bentuk dokumen. Ini berarti bahwa database jenis ini tidak mengandalkan bahasa query standar khusus dan lebih menyesuaikan dalam hal struktur penyimpanan data
+
+2. NoSQL digunakan ketika data yang dihadapi bersifat tidak terstruktur atau semi-terstruktur dan ada kebutuhan untuk skalabilitas horizontal, yaitu menambah lebih banyak server untuk meningkatkan kapasitas. Hal ini berguna untuk aplikasi besar yang harus menangani banyak data yang berubah-ubah atau untuk situasi yang memerlukan penyimpanan data besar tanpa struktur tetap. Sebaliknya, Sistem Manajemen Basis Data Relasional (RDBMS) cocok untuk kasus di mana struktur data sudah jelas dan tidak sering berubah, membutuhkan operasi transaksi yang kompleks, dan di mana integritas data sangat penting.
+
+3. Contoh 2 Tools/Platform NoSQL:
+
+- MongoDB: Platform ini sangat fleksibel dan mudah digunakan untuk menyimpan data berformat dokumen. Keunggulannya adalah dapat menyimpan data tanpa struktur yang tetap dan memudahkan pengembangan aplikasi dengan data yang berubah-ubah.
+
+- Cassandra: Dirancang untuk mengelola data dalam jumlah sangat besar yang tersebar di banyak server. Keunggulannya adalah kemampuannya dalam menyediakan layanan tanpa titik kegagalan, artinya jika satu server bermasalah, sistem tetap berjalan dengan server lainnya.
+
+4. Airflow adalah alat yang membantu mengotomatiskan urutan tugas yang perlu dijalankan secara berurutan atau paralel. Bayangkan memiliki daftar tugas harian yang kompleks yang perlu dilakukan dengan urutan yang tepat; Airflow memungkinkan untuk mengatur, menjadwalkan, dan memonitor daftar tugas tersebut dalam bentuk yang disebut 'pipelines'.
+
+5. Great Expectations adalah alat untuk memeriksa kualitas data. Great Expectations memeriksa data untuk memastikan semuanya sesuai dengan yang diharapkan sebelum diproses lebih lanjut, sehingga pengguna bisa percaya bahwa data yang mereka gunakan itu akurat.
+
+6. Proses Batch adalah mengumpulkan serangkaian tugas dan menjalankan mereka bersamaan tanpa interaksi langsung saat proses berlangsung. Contoh kasus penggunaan termasuk memproses transaksi bank setiap malam atau mengupdate informasi inventori sekaligus.

@@ -1,0 +1,71 @@
+LANDUSE TYPE    :
+
+- poorrange         : Likely refers to land with low-quality vegetation that may be used for grazing but doesn't support robust livestock activity.
+
+- mix(woodland_x)   : A mixed-use area that includes woodland and other unspecified land uses ('x' might stand for variable or unknown uses).
+
+- rock              : Land primarily characterized by exposed rock surfaces, with little to no vegetation.
+
+- mix(bareland_x)   : A combination of bare land (land without significant vegetation or structures) and other land uses.
+
+- verylowforest     : Areas with very sparse forest coverage.
+
+- lowforest         : Forests with low density of trees.
+
+- woodland1         : A type of land dominated by trees and shrubbery; the '1' might distinguish it from other types of woodland within the dataset.
+
+- bareland          : Land without significant vegetation, buildings, or other structures.
+
+- modrange          : Moderate-quality range land that could be used for grazing.
+
+- mix(poorrange_x)  : Mixed land use that includes poor-quality range land and other uses.
+
+- mix(lowforest_x)  : Mixed land use including low-density forests and other unspecified uses.
+
+- agri              : Agricultural land used for growing crops or livestock.
+
+- masil             : Farm - a tract of land with associated buildings devoted to agriculture
+
+- modforest         : Moderate-density forest.
+
+- mix(modforest_x)  : Mixed use that includes moderate-density forest and other uses.
+
+- mix(dryfarming_x) : Mixed land use that includes dry farming (agricultural techniques for non-irrigated farming) and other uses.
+
+- mix(modrange_x)   : Mixed use including moderate-quality range land and other uses.
+
+- mix(agri_X)       : Mixed agricultural land with other unspecified uses.
+
+- bagh/grazing area : 'Bagh' might refer to orchards or gardens in some languages, combined with grazing land.
+
+- goodrange         : High-quality grazing land.
+
+- woodland2         : Another category of woodland, likely with distinct characteristics from 'woodland1'.
+
+- urban             : Areas with high density of buildings, infrastructure, and human activity.
+
+- mix(bagh_X)       : Mixed use including orchards or gardens and other unspecified uses.
+
+- mix(agri_dryfarming): Mixed agricultural use, combining standard agriculture and dry farming.
+
+- denseforest       : Forest with a high density of trees.
+
+- mix(agri_bagh)    : Mixed use including agricultural land and orchards/gardens.
+
+- dryfarming        : Agricultural methods used in areas with little rainfall, relying on moisture conservation.
+
+- follow            : This might be a typo for 'fallow', which refers to agricultural land left to rest and not seeded for one or more growing seasons.
+
+- mix(goodrang_x)   : Mixed use including high-quality range land and other uses.
+
+- mix(follow_x)     : Mixed use including fallow land and other unspecified uses.
+
+- saltland          : Land with high soil salinity, often unsuitable for standard agriculture.
+
+- mix(verylowforest_x): Mixed use including very sparse forests and other uses.
+
+- wetland1          : Land with high levels of moisture, like swamps or marshes, which could support a diverse ecosystem.
+
+- water             : Areas covered by water bodies like lakes, rivers, or ponds.
+
+- mix(denseforest_x): Mixed use that includes dense forests and other unspecified uses.

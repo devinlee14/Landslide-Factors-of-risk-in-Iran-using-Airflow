@@ -1,0 +1,117 @@
+---
+version: '3.4'
+
+x-common:
+  &common
+  image: apache/airflow:2.3.4
+  user: "${AIRFLOW_UID}:0"
+  env_file: 
+    - .env
+  volumes:
+    - ./container/dags/P2M3_devin_lee_DAG.py:/opt/airflow/dags/P2M3_devin_lee_DAG.py
+    - ./container/logs:/opt/airflow/logs
+    - ./container/plugins:/opt/airflow/plugins
+    - /var/run/docker.sock:/var/run/docker.sock
+
+x-depends-on:
+  &depends-on
+  depends_on:
+    postgres:
+      condition: service_healthy
+    airflow-init:
+      condition: service_completed_successfully
+
+services: 
+  postgres:
+    image: postgres:13
+    container_name: postgres_devin_m3
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    volumes:
+      - ./P2M3_devin_lee_ddl.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./Landslide_Factors_IRAN.csv:/files/Landslide_Factors_IRAN.csv
+    env_file:
+      - .env
+
+  scheduler:
+    <<: [*common, *depends-on]
+    # <<: *depends-on
+    container_name: airflow-scheduler_devin_m3
+    command: scheduler
+    restart: on-failure
+    ports:
+      - "8793:8793"
+    volumes:
+    - ./container/dags:/opt/airflow/dags
+    - ./container/logs:/opt/airflow/logs
+    - ./container/plugins:/opt/airflow/plugins
+    - /var/run/docker.sock:/var/run/docker.sock
+
+  webserver:
+    <<: [*common, *depends-on]
+    # <<: *common
+    # <<: *depends-on
+    container_name: airflow-webserver_devin_m3
+    restart: always
+    command: webserver
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 30s
+      retries: 5
+    volumes:
+    - ./container/dags/P2M3_devin_lee_DAG.py:/opt/airflow/dags/P2M3_devin_lee_DAG.py
+    - ./container/logs:/opt/airflow/logs
+    - ./container/plugins:/opt/airflow/plugins
+    - /var/run/docker.sock:/var/run/docker.sock
+  
+  airflow-init:
+    <<: *common
+    container_name: airflow-init_devin_m3
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        mkdir -p /sources/logs /sources/dags /sources/plugins
+        chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
+        exec /entrypoint airflow version
+  
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+    container_name: elasticsearch_devin_m3
+    restart: always
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+
+  kibana:
+    container_name: kibana_devin_m3
+    image: docker.elastic.co/kibana/kibana:8.11.1
+    restart: always
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200    # address of elasticsearch docker container which kibana will connect
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+volumes:
+  elasticsearch-data:
