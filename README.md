@@ -10,4 +10,6 @@
 **Objectives**  
 *The purpose of this analysis is to find out what factors can trigger the occurrence of landslides, and what suggestions will be given to avoid or minimize the occurrence of landslides or at least not take casualties.*
 
+---
+
 Dataset Source : [Kaggle](https://www.kaggle.com/datasets/mohammadrahdanmofrad/landslide-risk-assessment-factors)
