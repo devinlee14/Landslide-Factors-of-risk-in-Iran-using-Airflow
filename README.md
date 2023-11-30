@@ -14,4 +14,16 @@
 
 ---
 
+**TOOLS**  
+```py
+import sqlalchemy as db
+from sqlalchemy import create_engine
+import pandas as pd
+import numpy as np
+import re
+import warnings
+from great_expectations.data_context import FileDataContext
+import plotly.express as px
+```
+
 **DATASET SOURCE** : [Kaggle](https://www.kaggle.com/datasets/mohammadrahdanmofrad/landslide-risk-assessment-factors)
